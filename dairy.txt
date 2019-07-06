@@ -1,0 +1,28 @@
+    Date            Start       Stop         Activity           Comments
+  27/06/2019       10:57am     11:39am       Reading            Read specs and started looking at implementation of git-init, in particular .legit folder
+
+  28/06/2019       8:22am      9:41am        Coding             Completed legit-init implementation
+
+  28/06/2019       9:30pm      11:00pm       Debugging          Inspected behaviour of 2041 legit-init, fixed bugs for multiple arguments and .legit folder already ther
+
+  29/06/2019       6:34pm      9:11pm     Coding and Debugging  Finished legit-add implementation and thought about folder structure in .legit, looked into bugs with 
+                                                                implementation 
+
+  30/06/2019       4:13pm      6:20pm     Coding and Debugging  Completed implementation of legit-commit. Handled cases with empty adds and etc.
+
+  04/07/2019       6:10am      8:21am         Debugging         Commit messages were not ordered based on latest commits, found a workaround and 
+                                                                completed legit-log
+
+  04/07/2019      12:10pm      12:50pm        Debugging         Modifying behaviour of commits so that files are not deleted from adds after comitting
+
+  04/07/2019       6:12pm       8:10pm    Debugging and Coding  Completed legit-show and debugged issues associated with it
+
+  05/07/2019      9:00pm        11:00pm       Debugging         Fixed all known bugs associated with legit-commit, it now updates status for removed files
+
+  07/07/2019      7:54am        
+
+
+
+
+         
+
