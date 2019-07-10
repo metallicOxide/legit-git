@@ -2,7 +2,7 @@
 
 # path
 ADDFOLDER=".legit/adds"
-COMMITFOLDER=".legit/commits/"
+COMMITFOLDER=".legit/commits"
 CLOGFILE=".legit/commits/commitLog"
 CLOGTEMP=".legit/commits/commitLogTemp"
 
@@ -41,7 +41,7 @@ else
     commitNumber=$(($latestCommit + 1))
 fi
 
-latestCommit=$( echo "$COMMITFOLDER$latestCommit" )
+latestCommit=$( echo "$COMMITFOLDER/$latestCommit" )
 # checking if adds folder has been updated or nah 
 updateCounter=0
 for file in "$ADDFOLDER"/*

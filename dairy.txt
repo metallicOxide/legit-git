@@ -22,3 +22,11 @@
   07/07/2019      7:54am        9:04am        Coding            Changed legit-commit to accmodate for the -a command for subset one
 
   07/07/2019      8:14pm        9:20pm        Debugging         Fixed issues associated with legit-commit -a and tested the code
+
+  09/07/2019      7:20am        8:30am      Researching         Researched behaviour of git-rm and tested functionalities on 2041 legit-rm
+
+  09/07/2019      8:12pm      11:00pm     Coding and Debugging  Implementated initial argument checking of legit-rm and fixed a bug in legit-add involving 
+                                                                case where folders are added in arguments
+
+ 10/07/2019       8:00am      10:22am         Debugging         Finished implementation of legit-rm and did some elementry testing
+
