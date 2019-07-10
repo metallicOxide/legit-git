@@ -11,14 +11,14 @@ fi
 
 # check for correct number of arguments
 if ! [ "$#" -eq 1 ]; then
-    echo "usage: legit-show <commit number>:<filename>"
+    echo "usage: legit-show <commit>:<filename>"
     exit 1
 fi
 
 # checks if input argument follows correct format
 check=$( echo "$1" | egrep -e '^[0-9]*:[a-zA-Z0-9_.\-]*$' )
 if ! [ "$check" = "$1" ]; then
-    echo "usage: legit-show <commit number>:<filename>"
+    echo "usage: legit-show <commit>:<filename>"
     exit 1
 fi
 
@@ -28,17 +28,21 @@ targetFile=$( echo "$check" | cut -d':' -f2 )
 # echo "$targetFile"
 
 if ! [ "$commitNum" = "" ]; then
-    if [ -f $COMMITFOLDER$commitNum/$targetFile ]; then
-        cat $COMMITFOLDER$commitNum/$targetFile
+    if [ -f "$COMMITFOLDER$commitNum/$targetFile" ]; then
+        cat "$COMMITFOLDER$commitNum/$targetFile"
     else
-        echo "Error: $COMMITFOLDER$commitNum/$targetFile does not exsist"
+        if ! [ -d "$COMMITFOLDER$commitNum" ]; then
+            echo "legit-show: error: unknown commit '$commitNum'"
+            exit 1
+        fi
+        echo "legit-show: error: '$targetFile' not found in commit $commitNum"
         exit 1
     fi
 else
-    if [ -f $ADDFOLDER/$targetFile ]; then
-        cat $ADDFOLDER/$targetFile
+    if [ -f "$ADDFOLDER/$targetFile" ]; then
+        cat "$ADDFOLDER/$targetFile"
     else
-        echo "Error: $ADDFOLDER/$targetFile does not exsist"
+        echo "legit-show: error: '$targetFile' not found in index"
         exit 1
     fi
 fi

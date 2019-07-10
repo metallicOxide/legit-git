@@ -7,7 +7,7 @@ if ! [ -d .legit ]; then
 fi
 
 if [ "$#" -gt 0 ]; then
-    echo "usage: ""legit-log"
+    echo "usage: legit-log"
     exit 1
 fi
 

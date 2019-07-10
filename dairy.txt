@@ -19,10 +19,6 @@
 
   05/07/2019      9:00pm        11:00pm       Debugging         Fixed all known bugs associated with legit-commit, it now updates status for removed files
 
-  07/07/2019      7:54am        asdaa
+  07/07/2019      7:54am        9:04am        Coding            Changed legit-commit to accmodate for the -a command for subset one
 
-
-
-
-         
-
+  07/07/2019      8:14pm        9:20pm        Debugging         Fixed issues associated with legit-commit -a and tested the code

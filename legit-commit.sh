@@ -6,6 +6,7 @@ COMMITFOLDER=".legit/commits/"
 CLOGFILE=".legit/commits/commitLog"
 CLOGTEMP=".legit/commits/commitLogTemp"
 
+################### ARGUMENT CHECKING #########################################
 # check if .legit folder exsists or nah
 if ! [ -d .legit ]; then
     echo "legit-add: error: no .legit directory containing legit repository exists"
@@ -29,7 +30,9 @@ else
     echo "usage: legit-commit [-a] -m commit-message"
     exit 1
 fi
+###############################################################################
 
+################### FOLDER CONDITION SCREENING ################################
 # get number of last commit
 if ! [ -f "$CLOGFILE" ]; then
     commitNumber=0
@@ -43,16 +46,21 @@ latestCommit=$( echo "$COMMITFOLDER$latestCommit" )
 updateCounter=0
 for file in "$ADDFOLDER"/*
 do
+    rootFile=$( basename "$file" )
+    # if -a flag is triggered, add file from working directory to commits
+    # we can add straight away because:
+    # 1. if there isn't any changes, we will not be changing the files in staging folder
+    # 2. if there are changes, the the commit should go through anyways
+    if [ "$aflag" -eq 1 ]; then
+        [ -f "$file" ] && legit-add.sh "$rootFile"
+    fi 
+    # test if add Folder is empty, if empty, file in $ADDFOLDER/* will
+    # give * which is not a file
     ! [ -f "$file" ] && continue
-    file=$( basename "$file" )
-    if [ aflag -eq 1 ]; then
-        echo "aflag triggered"
-        add "$file"
-    fi
     # if there isn't a file in latest commit folder that matches the file in staging folder, then this 
     # file must be freshly added. If there is a difference between this file and file with same name in latest commit
     # then we should add that to a fresh commit.
-    if ( ! [ -f "$latestCommit/$file" ] || ! (cmp "$file" "$latestCommit/$file" >/dev/null) ); then
+    if ( ! [ -f "$latestCommit/$rootFile" ] || ! (cmp -s "$file" "$latestCommit/$rootFile" >/dev/null) ); then
         updateCounter=$((updateCounter + 1))
     fi
 done
@@ -61,6 +69,7 @@ done
 deleteFlag=0
 for file in "$latestCommit"/*
 do
+    # if commit folder is empty, file becomes * which is not a file
     ! [ -f "$file" ] && continue
     file=$( basename "$file" )
     if ! [ -f "$ADDFOLDER/$file" ]; then
@@ -68,10 +77,11 @@ do
     fi
 done
 
+
 # no new file/changed file/deleted file, then there is nothing to commit
 if [ "$updateCounter" -eq 0 -a "$commitNumber" -ne 0 -a "$deleteFlag" -eq 0 ]; then
     echo "nothing to commit"
-    exit 1
+    exit 0
 fi
 
 # checking if is empty (has user added any files to be committed)
@@ -80,9 +90,11 @@ count=$(($count - 1))
 # if nothing has been deleted and add file is empty then there is nothing to be committed
 if [ $count -eq 0 -a "$deleteFlag" -eq 0 ]; then
     echo "nothing to commit"
-    exit 1
+    exit 0
 fi
+###############################################################################
 
+############################ COMMIT CODE ######################################
 # make directory
 mkdir .legit/commits/"$commitNumber"
 
@@ -106,7 +118,15 @@ do
         continue
     fi 
 
-    cp "$file" .legit/commits/"$commitNumber"
+    # if -a flag is triggered, add file from working directory to commits
+    # baseFile=$( basename "$file" )
+    # if [ "$aflag" -eq 1 ]; then
+    #     legit-add.sh "$baseFile"
+    #     # legit-add "$baseFile"
+    # fi
+    [ -f "$file" ] && cp "$file" .legit/commits/"$commitNumber"
 done
 
 echo "Committed as commit $commitNumber"
+
+###############################################################################
