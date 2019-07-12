@@ -2,10 +2,17 @@
 
 ADDFOLDER=".legit/adds"
 COMMITFOLDER=".legit/commits/"
+CLOGFILE=".legit/commits/commitLog"
 
 # check if .legit folder exsists or nah
 if ! [ -d .legit ]; then
-    echo "legit-add: error: no .legit directory containing legit repository exists"
+    echo "legit-show: error: no .legit directory containing legit repository exists"
+    exit 1
+fi
+
+# check if there is any commits, if there is, pull the latest commit
+if ! [ -f "$CLOGFILE" ]; then
+    echo "legit-show: error: your repository does not have any commits yet"
     exit 1
 fi
 

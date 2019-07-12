@@ -9,7 +9,7 @@ CLOGTEMP=".legit/commits/commitLogTemp"
 ################### ARGUMENT CHECKING #########################################
 # check if .legit folder exsists or nah
 if ! [ -d .legit ]; then
-    echo "legit-add: error: no .legit directory containing legit repository exists"
+    echo "legit-commit: error: no .legit directory containing legit repository exists"
     exit 1
 fi
 
@@ -60,7 +60,7 @@ do
     # if there isn't a file in latest commit folder that matches the file in staging folder, then this 
     # file must be freshly added. If there is a difference between this file and file with same name in latest commit
     # then we should add that to a fresh commit.
-    if ( ! [ -f "$latestCommit/$rootFile" ] || ! (cmp -s "$file" "$latestCommit/$rootFile" >/dev/null) ); then
+    if ( ! [ -f "$latestCommit/$rootFile" ] || ! cmp -s "$file" "$latestCommit/$rootFile" ); then
         updateCounter=$((updateCounter + 1))
     fi
 done

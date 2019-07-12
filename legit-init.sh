@@ -3,7 +3,7 @@
 counter=0
 
 if [ "$#" -gt 0 ]; then
-    echo "usage: ""legit-init"
+    echo "usage: legit-init"
     exit 1
 fi
 

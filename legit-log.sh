@@ -2,7 +2,7 @@
 
 # check if .legit folder exsists or nah
 if ! [ -d .legit ]; then
-    echo "legit-add: error: no .legit directory containing legit repository exists"
+    echo "legit-log: error: no .legit directory containing legit repository exists"
     exit 1
 fi
 

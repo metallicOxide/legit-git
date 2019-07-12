@@ -1,4 +1,5 @@
     Date            Start       Stop         Activity           Comments
+    
   27/06/2019       10:57am     11:39am       Reading            Read specs and started looking at implementation of git-init, in particular .legit folder
 
   28/06/2019       8:22am      9:41am        Coding             Completed legit-init implementation
@@ -28,5 +29,7 @@
   09/07/2019      8:12pm      11:00pm     Coding and Debugging  Implementated initial argument checking of legit-rm and fixed a bug in legit-add involving 
                                                                 case where folders are added in arguments
 
- 10/07/2019       8:00am      10:22am         Debugging         Finished implementation of legit-rm and did some elementry testing
+  10/07/2019       8:00am      10:22am         Debugging        Finished implementation of legit-rm and did some elementry testing
+
+
 

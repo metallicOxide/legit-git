@@ -20,8 +20,13 @@ for args in "$@"
 do
     check=$(echo "$args" | egrep -E '^[a-zA-Z0-9][a-zA-Z0-9_.\-]*$')
     # check should fail if they are directory or have weird names
-    if ( [ -d "$args" ] || ! [ "$check" = "$args" ] ); then
+    if ! [ "$check" = "$args" ]; then
         echo "legit-add: error: invalid filename '$args'"
+        exit 1
+    fi
+
+    if [ -d "$args" ]; then
+        echo "legit-add: error: '$args' is not a regular file"
         exit 1
     fi
 
