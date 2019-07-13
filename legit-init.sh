@@ -3,12 +3,12 @@
 counter=0
 
 if [ "$#" -gt 0 ]; then
-    echo "usage: legit-init"
+    echo "usage: legit-init" >&2
     exit 1
 fi
 
 if [ -d .legit ]; then
-    echo "$0: error: .legit already exists"
+    echo "$0: error: .legit already exists" >&2
     exit 1
 fi
 

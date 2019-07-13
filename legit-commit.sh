@@ -9,13 +9,13 @@ CLOGTEMP=".legit/commits/commitLogTemp"
 ################### ARGUMENT CHECKING #########################################
 # check if .legit folder exsists or nah
 if ! [ -d .legit ]; then
-    echo "legit-commit: error: no .legit directory containing legit repository exists"
+    echo "legit-commit: error: no .legit directory containing legit repository exists" >&2
     exit 1
 fi
 
 # check if number of arguments are valid ie >= 1
 if ( [ "$#" -lt 2 ] || [ "$#" -gt 3 ] ) ; then
-    echo "usage: legit-commit [-a] -m commit-message"
+    echo "usage: legit-commit [-a] -m commit-message" >&2
     exit 1
 fi
 
@@ -27,7 +27,7 @@ if ( [ "$#" -eq 3 ] && [ "$1" = "-a" ] && [ "$2" = "-m" ] ); then
 elif ( [ "$#" -eq 2 ] && [ "$1" = "-m" ] ); then
     cmtMessage="$2"
 else
-    echo "usage: legit-commit [-a] -m commit-message"
+    echo "usage: legit-commit [-a] -m commit-message" >&2
     exit 1
 fi
 ###############################################################################
@@ -77,7 +77,6 @@ do
     fi
 done
 
-
 # no new file/changed file/deleted file, then there is nothing to commit
 if [ "$updateCounter" -eq 0 -a "$commitNumber" -ne 0 -a "$deleteFlag" -eq 0 ]; then
     echo "nothing to commit"
@@ -106,9 +105,6 @@ else
     cat "$CLOGTEMP" > "$CLOGFILE"
     rm "$CLOGTEMP"
 fi
-    
-# ( [ "$commitNumber" -eq 0 ] && echo "$commitNumber $cmtMessage" > "$CLOGFILE" ) ||
-#     ( echo "$commitNumber $cmtMessage" | cat - "$CLOGFILE" > "$CLOGTEMP" && cat "$CLOGTEMP" > "$CLOGFILE" )
 
 # copies every file in adds to commits
 for file in "$ADDFOLDER"/* 
@@ -118,12 +114,6 @@ do
         continue
     fi 
 
-    # if -a flag is triggered, add file from working directory to commits
-    # baseFile=$( basename "$file" )
-    # if [ "$aflag" -eq 1 ]; then
-    #     legit-add.sh "$baseFile"
-    #     # legit-add "$baseFile"
-    # fi
     [ -f "$file" ] && cp "$file" .legit/commits/"$commitNumber"
 done
 

@@ -29,7 +29,15 @@
   09/07/2019      8:12pm      11:00pm     Coding and Debugging  Implementated initial argument checking of legit-rm and fixed a bug in legit-add involving 
                                                                 case where folders are added in arguments
 
-  10/07/2019       8:00am      10:22am         Debugging        Finished implementation of legit-rm and did some elementry testing
+  10/07/2019      8:00am      10:22am         Debugging         Finished implementation of legit-rm and did some elementry testing
+
+  11/07/2019      12:13pm      2:00pm         Research          Investigated behaviour of legit-status for different cases    
+
+  11/07/2019      7:00pm       10:00pm        Coding            Did a bit of coding for legit-status, 7/12 responses have been completed
+
+  12/07/2019      3:00pm       6:00 pm        Coding            Completed legit-status
+
+  13/07/2019      10:00am       6:00pm        Testing           Completed test suit and did debugging and code beautification
 
 
 

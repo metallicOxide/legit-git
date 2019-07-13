@@ -1,14 +1,261 @@
-a
-b
-c
-d
-e
-f
-g
-h
-i
-j
-k
-l
-m
-n
+------------test 1------------
+
+Initialized empty legit repository in .legit
+Committed as commit 0
+legit status: working == commit, working == add, add == commit
+case 5
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+a.txt - same as repo
+c.txt - untracked
+dairy.txt - untracked
+legit-add.sh - untracked
+legit-commit.sh - untracked
+legit-init.sh - untracked
+legit-log.sh - untracked
+legit-rm.sh - untracked
+legit-show.sh - untracked
+legit-status.sh - untracked
+test.sh - untracked
+testsed.txt - untracked
+
+------------test 2-----------
+
+legit status: working != commit, working != add, add != commit
+case 3
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+a.txt - file changed, different changes staged for commit
+c.txt - untracked
+dairy.txt - untracked
+legit-add.sh - untracked
+legit-commit.sh - untracked
+legit-init.sh - untracked
+legit-log.sh - untracked
+legit-rm.sh - untracked
+legit-show.sh - untracked
+legit-status.sh - untracked
+test.sh - untracked
+testsed.txt - untracked
+
+------------test 3-----------
+
+legit-status: working != commit, working == add, add != commit
+case 1
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+a.txt - file changed, changes staged for commit
+c.txt - untracked
+dairy.txt - untracked
+legit-add.sh - untracked
+legit-commit.sh - untracked
+legit-init.sh - untracked
+legit-log.sh - untracked
+legit-rm.sh - untracked
+legit-show.sh - untracked
+legit-status.sh - untracked
+test.sh - untracked
+testsed.txt - untracked
+
+------------test4------------
+
+Committed as commit 1
+legit-status: working == commit, working != add, add != commit
+case 2
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+a.txt - file changed, different changes staged for commit
+c.txt - untracked
+dairy.txt - untracked
+legit-add.sh - untracked
+legit-commit.sh - untracked
+legit-init.sh - untracked
+legit-log.sh - untracked
+legit-rm.sh - untracked
+legit-show.sh - untracked
+legit-status.sh - untracked
+test.sh - untracked
+testsed.txt - untracked
+
+------------test5------------
+
+legit-rm: error: 'a.txt' in index is different to both working file and repository
+legit-status: working == commit, add is deleted
+case 2
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+a.txt - file changed, different changes staged for commit
+c.txt - untracked
+dairy.txt - untracked
+legit-add.sh - untracked
+legit-commit.sh - untracked
+legit-init.sh - untracked
+legit-log.sh - untracked
+legit-rm.sh - untracked
+legit-show.sh - untracked
+legit-status.sh - untracked
+test.sh - untracked
+testsed.txt - untracked
+
+------------test6------------
+
+legit-status: a.txt removed from working, commit == add
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 10
+a.txt - file deleted
+c.txt - untracked
+dairy.txt - untracked
+legit-add.sh - untracked
+legit-commit.sh - untracked
+legit-init.sh - untracked
+legit-log.sh - untracked
+legit-rm.sh - untracked
+legit-show.sh - untracked
+legit-status.sh - untracked
+test.sh - untracked
+testsed.txt - untracked
+
+------------test7------------
+
+rm .legit/adds/a.txt
+legit-status: only add.txt in commit
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 10
+a.txt - file deleted
+c.txt - untracked
+dairy.txt - untracked
+legit-add.sh - untracked
+legit-commit.sh - untracked
+legit-init.sh - untracked
+legit-log.sh - untracked
+legit-rm.sh - untracked
+legit-show.sh - untracked
+legit-status.sh - untracked
+test.sh - untracked
+testsed.txt - untracked
+
+------------test8------------
+
+Committed as commit 2
+rm .legit/adds/a.txt
+legit-status: a.txt removed from add, working != commit
+case 4
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+a.txt - file changed, changes not staged for commit
+c.txt - untracked
+dairy.txt - untracked
+legit-add.sh - untracked
+legit-commit.sh - untracked
+legit-init.sh - untracked
+legit-log.sh - untracked
+legit-rm.sh - untracked
+legit-show.sh - untracked
+legit-status.sh - untracked
+test.sh - untracked
+testsed.txt - untracked
+
+------------test9------------
+
+Committed as commit 3
+legit-status: a.txt removed from working, add != commit
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+case 8
+.legit/adds/a.txt .legit/commits/3/a.txt differ: byte 1, line 1
+case 11
+a.txt - file deleted, different changes staged for commit
+c.txt - untracked
+dairy.txt - untracked
+legit-add.sh - untracked
+legit-commit.sh - untracked
+legit-init.sh - untracked
+legit-log.sh - untracked
+legit-rm.sh - untracked
+legit-show.sh - untracked
+legit-status.sh - untracked
+test.sh - untracked
+testsed.txt - untracked
+
